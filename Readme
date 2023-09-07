@@ -1,0 +1,25 @@
+Craft demo
+The Accounting team would like to quickly look up country codes to speed up processing of expense reports, they currently have a website bookmarked and the process is manual and tedious. Help them speed things up by creating a simple cli.
+•	Write a country lookup service using your favorite programming language. -----> Code has been written in python
+•	Explore the following API https://www.travel-advisory.info/api ---------------> Done
+•	Given country code -> return country name example:
+lookup --countryCode=AU
+Australia
+
+
+•	Save the data from https://www.travel-advisory.info/api to a file called data.json and add functionality to your program to work with a file instead of real api endpoint ----> Fetched teh data from the API and added into the
+file.
+•	Make sure your program supports multiple country codes as input --------> It will ask for Country code unliess you write exit.
+•	Be ready to demo execution of your program in the terminal -------------> Done
+Bonus
+Demand for your tool is increasing and there is an ask from multiple teams to be able to use county code lookup automation.Decision has been made to extend your tool to expose its functionality via REST.
+•	Convert code written in Craft demo to a REST service with two routes
+•	/health returns health of your service -----> Health check Api url has been tested 
+•	/diag check returns status of the api https://www.travel-advisory.info/api return {"api_status":{... "code":200,"status":"ok"} that you obtained from hitting an API --> diag api has been tested
+•	/convert – converts country name to country code --------> Once Country name will be given it will show the country code.
+•	Create local k8s cluster on your workstation ------------> Downloaded docker desktop, run the minikube cluster.
+•	Deploy your service to local k8s cluster --------------> Created a docker file, created docker image out of it, push the docker image into public docker hub, wrote kubernetesd manifest file for deployment and services
+  expose the services, did port forwarding and access the api .
+The Operations team likes your service, but to make their job easier and keep things operating at an optimal level
+•	Setup basic monitoring ----> Deploy the helm chart for prometheus and grafana, exposes the services, as I am in windows again need to exposed in minikube, update the prometheus cm file with kube-state matrics data.
+ downloaded the grafana dashboard as json and imported in grafana dashboard.
